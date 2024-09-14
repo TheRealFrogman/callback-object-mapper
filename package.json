@@ -1,0 +1,32 @@
+{
+   "name": "callback-object-mapper",
+   "version": "0.0.1",
+   "main": "index.js",
+   "type": "module",
+   "scripts": {
+      "test": "node --env-file=.env --test --experimental-test-coverage",
+      "start-build": "node ./out/src/index.js",
+      "start-raw": "ts-node ./src/index",
+      "build": "powershell -Command \"npm i; npm run clean; npm run compile; npm run copy-assets\"",
+      "clean": "powershell -Command \"if (Test-Path -Path out) { Remove-Item -Path out -Recurse -Force }\"",
+      "compile": "tsc --outDir ./out --rootDir ./ --noUnusedLocals --noUnusedParameters",
+      "copy-assets": "powershell -Command \"New-Item -ItemType Directory -Force -Path out | Out-Null; Copy-Item -Path ./* -Exclude out, src, *.ts, tsconfig.json -Destination out -Recurse -Container\""
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "description": "",
+   "devDependencies": {
+      "@rollup/plugin-node-resolve": "^15.2.3",
+      "@rollup/plugin-typescript": "^11.1.6",
+      "@types/node": "^20.14.9",
+      "rollup": "^4.21.3",
+      "tslib": "^2.7.0",
+      "typescript": "^5.5.2"
+   },
+   "dependencies": {
+      "callback-object-mapper": "file:",
+      "simple--mapper": "file:",
+      "simple-mapper": "file:"
+   }
+}
