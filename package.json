@@ -1,8 +1,7 @@
 {
    "name": "callback-object-mapper",
-   "version": "0.0.1",
+   "version": "0.0.7",
    "main": "index.js",
-   "type": "module",
    "scripts": {
       "test": "node --env-file=.env --test --experimental-test-coverage",
       "start-build": "node ./out/src/index.js",
@@ -12,7 +11,12 @@
       "compile": "tsc --outDir ./out --rootDir ./ --noUnusedLocals --noUnusedParameters",
       "copy-assets": "powershell -Command \"New-Item -ItemType Directory -Force -Path out | Out-Null; Copy-Item -Path ./* -Exclude out, src, *.ts, tsconfig.json -Destination out -Recurse -Container\""
    },
-   "keywords": [],
+   "keywords": [
+      "object",
+      "mapper",
+      "callback",
+      "typescript"
+   ],
    "author": "",
    "license": "ISC",
    "description": "",
@@ -20,13 +24,11 @@
       "@rollup/plugin-node-resolve": "^15.2.3",
       "@rollup/plugin-typescript": "^11.1.6",
       "@types/node": "^20.14.9",
-      "rollup": "^4.21.3",
+      "rollup": "^2.79.1",
       "tslib": "^2.7.0",
       "typescript": "^5.5.2"
    },
    "dependencies": {
-      "callback-object-mapper": "file:",
-      "simple--mapper": "file:",
-      "simple-mapper": "file:"
+      "callback-object-mapper": "file:"
    }
 }

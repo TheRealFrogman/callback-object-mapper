@@ -1,4 +1,3 @@
-import assert from "assert";
 import { IMappper, ObjectMap } from "./IMapper.js";
 
 export const mapper: IMappper = function
